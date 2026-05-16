@@ -1,0 +1,776 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FBA66208-87E5-4A5C-A30A-B6356F59199F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CarRentalManagementSystem</RootNamespace>
+    <AssemblyName>CarRentalManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bookings\FrmAddRentalBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings\FrmAddRentalBooking.Designer.cs">
+      <DependentUpon>FrmAddRentalBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\FrmListBookings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings\FrmListBookings.Designer.cs">
+      <DependentUpon>FrmListBookings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\FrmShowBookingDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings\FrmShowBookingDetails.Designer.cs">
+      <DependentUpon>FrmShowBookingDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\FrmShowCustomerBookingHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings\FrmShowCustomerBookingHistory.Designer.cs">
+      <DependentUpon>FrmShowCustomerBookingHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\FrmShowVehicleBookingHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings\FrmShowVehicleBookingHistory.Designer.cs">
+      <DependentUpon>FrmShowVehicleBookingHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\UserControls\UcBookingDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bookings\UserControls\UcBookingDetails.Designer.cs">
+      <DependentUpon>UcBookingDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\UserControls\UcBookingDetailsWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bookings\UserControls\UcBookingDetailsWithFilter.Designer.cs">
+      <DependentUpon>UcBookingDetailsWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\FrmAddUpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\FrmAddUpdateCustomer.Designer.cs">
+      <DependentUpon>FrmAddUpdateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\FrmListCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\FrmListCustomers.Designer.cs">
+      <DependentUpon>FrmListCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\FrmShowCustomerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\FrmShowCustomerDetails.Designer.cs">
+      <DependentUpon>FrmShowCustomerDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\UserControls\UcCustomerCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customers\UserControls\UcCustomerCard.Designer.cs">
+      <DependentUpon>UcCustomerCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\UserControls\UcCustomerCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customers\UserControls\UcCustomerCardWithFilter.Designer.cs">
+      <DependentUpon>UcCustomerCardWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\maintenancesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>maintenancesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\profitDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>profitDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\rentalBookingsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rentalBookingsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\rentalTransactionsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rentalTransactionsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\vehicleReturnsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vehicleReturnsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\vehiclesDataSet.cs">
+      <DependentUpon>vehiclesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\vehiclesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vehiclesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FrmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\FrmList.Designer.cs">
+      <DependentUpon>FrmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDashboard.Designer.cs">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHome.Designer.cs">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global\Global.cs" />
+    <Compile Include="Maintenances\FrmMaintainVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenances\FrmMaintainVehicle.Designer.cs">
+      <DependentUpon>FrmMaintainVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenances\FrmShowVehicleMaintenanceHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenances\FrmShowVehicleMaintenanceHistory.Designer.cs">
+      <DependentUpon>FrmShowVehicleMaintenanceHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\UserControls\UcPersonCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\UserControls\UcPersonCard.Designer.cs">
+      <DependentUpon>UcPersonCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\DataSets\customersDataSet.cs">
+      <DependentUpon>customersDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\customersDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>customersDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FrmGenerateReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\FrmGenerateReports.Designer.cs">
+      <DependentUpon>FrmGenerateReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Returns\FrmListVehicleReturns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Returns\FrmListVehicleReturns.Designer.cs">
+      <DependentUpon>FrmListVehicleReturns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Returns\FrmReturnRentedVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Returns\FrmReturnRentedVehicle.Designer.cs">
+      <DependentUpon>FrmReturnRentedVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Returns\FrmShowVehicleReturnDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Returns\FrmShowVehicleReturnDetails.Designer.cs">
+      <DependentUpon>FrmShowVehicleReturnDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Returns\UserControls\UcVehicleReturnDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Returns\UserControls\UcVehicleReturnDetails.Designer.cs">
+      <DependentUpon>UcVehicleReturnDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\FrmListTransactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\FrmListTransactions.Designer.cs">
+      <DependentUpon>FrmListTransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\FrmShowCustomerTransactionHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\FrmShowCustomerTransactionHistory.Designer.cs">
+      <DependentUpon>FrmShowCustomerTransactionHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\FrmShowTransactionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\FrmShowTransactionDetails.Designer.cs">
+      <DependentUpon>FrmShowTransactionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\UserControls\UcTransactionDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transactions\UserControls\UcTransactionDetails.Designer.cs">
+      <DependentUpon>UcTransactionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\FrmAddUpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmAddUpdateUser.Designer.cs">
+      <DependentUpon>FrmAddUpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\FrmChangeUserPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmChangeUserPassword.Designer.cs">
+      <DependentUpon>FrmChangeUserPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\FrmListUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmListUsers.Designer.cs">
+      <DependentUpon>FrmListUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\FrmShowUserDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmShowUserDetails.Designer.cs">
+      <DependentUpon>FrmShowUserDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\UserControls\UcUserCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\UserControls\UcUserCard.Designer.cs">
+      <DependentUpon>UcUserCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicles\FrmAddUpdateVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehicles\FrmAddUpdateVehicle.Designer.cs">
+      <DependentUpon>FrmAddUpdateVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicles\FrmListVehicles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehicles\FrmListVehicles.Designer.cs">
+      <DependentUpon>FrmListVehicles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicles\FrmShowVehicleDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vehicles\FrmShowVehicleDetails.Designer.cs">
+      <DependentUpon>FrmShowVehicleDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicles\UserControls\UcVehicleCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vehicles\UserControls\UcVehicleCard.Designer.cs">
+      <DependentUpon>UcVehicleCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicles\UserControls\UcVehicleCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vehicles\UserControls\UcVehicleCardWithFilter.Designer.cs">
+      <DependentUpon>UcVehicleCardWithFilter.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Bookings\FrmAddRentalBooking.resx">
+      <DependentUpon>FrmAddRentalBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\FrmListBookings.resx">
+      <DependentUpon>FrmListBookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\FrmShowBookingDetails.resx">
+      <DependentUpon>FrmShowBookingDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\FrmShowCustomerBookingHistory.resx">
+      <DependentUpon>FrmShowCustomerBookingHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\FrmShowVehicleBookingHistory.resx">
+      <DependentUpon>FrmShowVehicleBookingHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\UserControls\UcBookingDetails.resx">
+      <DependentUpon>UcBookingDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\UserControls\UcBookingDetailsWithFilter.resx">
+      <DependentUpon>UcBookingDetailsWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\FrmAddUpdateCustomer.resx">
+      <DependentUpon>FrmAddUpdateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\FrmListCustomers.resx">
+      <DependentUpon>FrmListCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\FrmShowCustomerDetails.resx">
+      <DependentUpon>FrmShowCustomerDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\UserControls\UcCustomerCard.resx">
+      <DependentUpon>UcCustomerCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\UserControls\UcCustomerCardWithFilter.resx">
+      <DependentUpon>UcCustomerCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FrmList.resx">
+      <DependentUpon>FrmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDashboard.resx">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHome.resx">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenances\FrmMaintainVehicle.resx">
+      <DependentUpon>FrmMaintainVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenances\FrmShowVehicleMaintenanceHistory.resx">
+      <DependentUpon>FrmShowVehicleMaintenanceHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\UserControls\UcPersonCard.resx">
+      <DependentUpon>UcPersonCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\FrmGenerateReports.resx">
+      <DependentUpon>FrmGenerateReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportViewers\customersReport.rdlc" />
+    <EmbeddedResource Include="Reports\ReportViewers\maintenancesReport.rdlc" />
+    <EmbeddedResource Include="Reports\ReportViewers\profitReport.rdlc" />
+    <EmbeddedResource Include="Reports\ReportViewers\rentalBookingsReport.rdlc" />
+    <EmbeddedResource Include="Reports\ReportViewers\rentalTransactiosReport.rdlc" />
+    <EmbeddedResource Include="Reports\ReportViewers\vehicleReturnsReport.rdlc" />
+    <EmbeddedResource Include="Reports\ReportViewers\vehiclesReport.rdlc" />
+    <EmbeddedResource Include="Returns\FrmListVehicleReturns.resx">
+      <DependentUpon>FrmListVehicleReturns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Returns\FrmReturnRentedVehicle.resx">
+      <DependentUpon>FrmReturnRentedVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Returns\FrmShowVehicleReturnDetails.resx">
+      <DependentUpon>FrmShowVehicleReturnDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Returns\UserControls\UcVehicleReturnDetails.resx">
+      <DependentUpon>UcVehicleReturnDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\FrmListTransactions.resx">
+      <DependentUpon>FrmListTransactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\FrmShowCustomerTransactionHistory.resx">
+      <DependentUpon>FrmShowCustomerTransactionHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\FrmShowTransactionDetails.resx">
+      <DependentUpon>FrmShowTransactionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\UserControls\UcTransactionDetails.resx">
+      <DependentUpon>UcTransactionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FrmAddUpdateUser.resx">
+      <DependentUpon>FrmAddUpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FrmChangeUserPassword.resx">
+      <DependentUpon>FrmChangeUserPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FrmListUsers.resx">
+      <DependentUpon>FrmListUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FrmShowUserDetails.resx">
+      <DependentUpon>FrmShowUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\UserControls\UcUserCard.resx">
+      <DependentUpon>UcUserCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehicles\FrmAddUpdateVehicle.resx">
+      <DependentUpon>FrmAddUpdateVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehicles\FrmListVehicles.resx">
+      <DependentUpon>FrmListVehicles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehicles\FrmShowVehicleDetails.resx">
+      <DependentUpon>FrmShowVehicleDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehicles\UserControls\UcVehicleCard.resx">
+      <DependentUpon>UcVehicleCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehicles\UserControls\UcVehicleCardWithFilter.resx">
+      <DependentUpon>UcVehicleCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarRental_BusinessLayer\CarRental_BusinessLayer.csproj">
+      <Project>{e845ce88-2c11-40af-b947-ac4161e239f8}</Project>
+      <Name>CarRental_BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarRental_UtilityLayer\CarRental_UtilityLayer.csproj">
+      <Project>{67e26f8f-139f-4dd4-9500-f1b6ce4f8ebd}</Project>
+      <Name>CarRental_UtilityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reports\DataSets\customersDataSet.xsc">
+      <DependentUpon>customersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\customersDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>customersDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSets\customersDataSet.xss">
+      <DependentUpon>customersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\maintenancesDataSet.xsc">
+      <DependentUpon>maintenancesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\maintenancesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>maintenancesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSets\maintenancesDataSet.xss">
+      <DependentUpon>maintenancesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\profitDataSet.xsc">
+      <DependentUpon>profitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\profitDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>profitDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSets\profitDataSet.xss">
+      <DependentUpon>profitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\rentalBookingsDataSet.xsc">
+      <DependentUpon>rentalBookingsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\rentalBookingsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rentalBookingsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSets\rentalBookingsDataSet.xss">
+      <DependentUpon>rentalBookingsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\rentalTransactionsDataSet.xsc">
+      <DependentUpon>rentalTransactionsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\rentalTransactionsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rentalTransactionsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSets\rentalTransactionsDataSet.xss">
+      <DependentUpon>rentalTransactionsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\vehicleReturnsDataSet.xsc">
+      <DependentUpon>vehicleReturnsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\vehicleReturnsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>vehicleReturnsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSets\vehicleReturnsDataSet.xss">
+      <DependentUpon>vehicleReturnsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\vehiclesDataSet.xsc">
+      <DependentUpon>vehiclesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\vehiclesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>vehiclesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSets\vehiclesDataSet.xss">
+      <DependentUpon>vehiclesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fast-delivery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car-rental.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car-key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\team.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\client.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Car rental-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car-repair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross-mark-on-a-black-circle-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\woman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash-bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3d-car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car-manufacturing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searching.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rental.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transaction1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rental-car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transaction %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rental1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\return1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Car rental-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\speedydrive-high-resolution-logo-transparent %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transaction2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3d-car1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leasing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3d-car %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car-rental %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log-out %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Car rental-cuate %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\team1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\networking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3d-report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
