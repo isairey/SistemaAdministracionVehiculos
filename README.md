@@ -181,7 +181,7 @@ El sistema genera reportes avanzados como:
 # 📂 Estructura del proyecto
 
 ```bash
-Car-Rental-Management-System/
+SistemaAdministracionVehiculos/
 │
 ├── DataAccess/                 # Acceso a datos ADO.NET
 ├── BusinessLayer/              # Lógica de negocio
@@ -215,7 +215,7 @@ Car-Rental-Management-System/
 ## 1️⃣ Clonar repositorio
 
 ```bash
-git clone https://github.com/isairey/Car-Rental-Management-System.git
+git clone https://github.com/isairey/SistemaAdministracionVehiculos.git
 ```
 
 ---
